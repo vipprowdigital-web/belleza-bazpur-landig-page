@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #791535;
+  --color-secondary: #826955;
+  --color-accent: #fddfbf;
+   --color-light: #ffffff;
+}
+
+
+*,
+em,
+i {
+  font-style: normal !important;
+}
+/* BACKGROUND CLASSES */
+
+.font-serif {
+  font-style: normal !important;
+}
+
+.bg-primary {
+  background-color: var(--color-primary);
+}
+
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+
+.bg-accent {
+  background-color: var(--color-accent);
+}
+
+.bg-light {
+  background-color: var(--color-light);
+}
+
+/* TEXT CLASSES */
+.text-primary {
+  color: var(--color-primary);
+}
+
+.text-secondary {
+  color: var(--color-secondary);
+}
+.font-premium {
+  font-family: "Montserrat", serif;
+}
+
+.font-main {
+  font-family: "Montserrat", sans-serif;
+}
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+.text-accent {
+  color: var(--color-accent);
+}
+
+.text-light {
+  color: var(--color-light);
+}
+
+/* BORDER CLASSES */
+.border-primary {
+  border-color: var(--color-primary);
+}
+
+.border-secondary {
+  border-color: var(--color-secondary);
+}
+
+.border-accent {
+  border-color: var(--color-accent);
+}
+
+.border-light {
+  border-color: var(--color-light);
+}
+
+/* OPACITY */
+.bg-secondary-20 {
+  background-color: rgba(var(--color-secondary), 0.2);
+}
+
+/* .logo-scratch {
+  filter: drop-shadow(200px 5px var(---color-primary));
+  transform: translateX(-200px);
+} */
