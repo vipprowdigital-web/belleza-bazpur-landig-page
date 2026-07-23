@@ -73,7 +73,7 @@ function App() {
               }}
               transition={{ duration: 0.3 }}
             >
-              +91 90123 60088
+               +91 74099 40088 
             </motion.span>
           </motion.div>
 

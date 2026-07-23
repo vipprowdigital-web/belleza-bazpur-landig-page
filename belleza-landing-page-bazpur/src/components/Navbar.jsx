@@ -182,7 +182,7 @@ export default Navbar;
 //             className="flex items-center gap-2 text-primary font-bold text-sm mr-4 hover:text-accent transition-colors"
 //           >
 //             <Phone size={16} />
-//             +91 90123 60088
+//              +91 74099 40088 
 //           </a> */}
 //           <button
 //             className={`px-6 py-2.5 rounded-full font-bold text-sm shadow-xl shadow-primary hover:bg-secondary transition-all ${scrolled ? "bg-accent text-primary" : "bg-primary text-light"}`}

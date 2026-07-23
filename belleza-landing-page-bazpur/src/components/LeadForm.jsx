@@ -196,7 +196,7 @@ const LeadForm = ({ address, phone }) => {
       Icon: Phone,
       text: phone
         ? `+91 ${phone.replace(/(\d{5})(\d{5})/, "$1 $2")}`
-        : "+91 90123 60088",
+        : " +91 74099 40088 ",
     },
     {
       Icon: Link,

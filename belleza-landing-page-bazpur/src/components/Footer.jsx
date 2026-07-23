@@ -73,7 +73,7 @@ const Footer = () => {
             {/* Social Icons */}
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://www.instagram.com/bellezabazpur/"
+                href="https://www.facebook.com/profile.php?id=61585355885004"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -83,7 +83,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://www.facebook.com/"
+                href=" https://www.facebook.com/profile.php?id=61585355885004"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
@@ -93,7 +93,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://share.google/mVfpiaBuyJG5zEZC3"
+                href="https://share.google/X7pmjKOah3D79XrFW"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Google Business Profile"
@@ -189,7 +189,7 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                 <p className="text-sm text-light/70 leading-relaxed">
-                  Bazpur, Uttarakhand
+                  Beria Road, near S.D.M Court, Bazpur, Uttarakhand 262401 
                 </p>
               </div>
 
@@ -199,7 +199,7 @@ const Footer = () => {
                   href="tel:+919012360088"
                   className="text-sm text-light/70 hover:text-accent transition-colors"
                 >
-                  +91 90123 60088
+                   +91 74099 40088 
                 </a>
               </div>
 
@@ -351,12 +351,12 @@ export default Footer;
 //               <div className="flex items-start gap-3">
 //                 <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
 //                 <p className="text-sm text-light/70 leading-relaxed">
-//                   Bazpur, Uttarakhand
+//                   Beria Road, near S.D.M Court, Bazpur, Uttarakhand 262401 
 //                 </p>
 //               </div>
 //               <div className="flex items-center gap-3">
 //                 <Phone className="w-5 h-5 text-accent shrink-0" />
-//                 <p className="text-sm text-light/70">+91 90123 60088</p>
+//                 <p className="text-sm text-light/70"> +91 74099 40088 </p>
 //               </div>
 //               <div className="flex items-center gap-3">
 //                 <Globe className="w-5 h-5 text-accent shrink-0" />

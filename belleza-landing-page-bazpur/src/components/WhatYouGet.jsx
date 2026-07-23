@@ -208,7 +208,7 @@ export default WhatYouGet;
 //                   Premium Facility
 //                 </div>
 //                 <div className="text-secondary text-xs font-bold uppercase tracking-tighter">
-//                    Bazpur, Uttarakhand
+//                    Beria Road, near S.D.M Court, Bazpur, Uttarakhand 262401 
 //                 </div>
 //               </div>
 //             </div>

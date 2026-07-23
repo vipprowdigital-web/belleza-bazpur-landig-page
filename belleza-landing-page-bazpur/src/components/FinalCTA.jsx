@@ -74,7 +74,7 @@ const FinalCTA = () => {
                     Address
                   </p>
                   <p className="text-secondary font-semibold text-sm leading-relaxed max-w-sm">
-                   Bazpur, Uttarakhand
+                   Beria Road, near S.D.M Court, Bazpur, Uttarakhand 262401 
                   </p>
                 </div>
               </div>
