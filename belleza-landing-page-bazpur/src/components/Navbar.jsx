@@ -225,7 +225,7 @@ export default Navbar;
 //                 href="tel:9012360088"
 //                 className="text-accent text-xl font-bold flex items-center gap-2"
 //               >
-//                 <Phone /> 90123 60088
+//                 <Phone />  9690920088 
 //               </a> */}
 //               <button className="bg-accent text-primary px-10 py-4 rounded-full font-black text-lg">
 //                 APPLY NOW

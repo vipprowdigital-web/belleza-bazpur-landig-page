@@ -93,7 +93,7 @@ const Footer = () => {
               </a>
 
               <a
-                href="https://share.google/X7pmjKOah3D79XrFW"
+                href="https://share.google/Id1yaa47rCl9V2ZsE"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Google Business Profile"
