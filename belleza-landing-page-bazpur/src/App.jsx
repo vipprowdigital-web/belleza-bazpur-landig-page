@@ -18,12 +18,69 @@ import FinalCTA from "./components/FinalCTA";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Courses from "./components/Courses";
+import Gallery from "./components/Gallery";
+import { baseUrl, subDomain } from "./utils/baseUrl";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [appConfig, setAppConfig] = useState({});
+  const [gallery, setGallery] = useState([]);
+
+  useEffect(() => {
+    const fetchAppConfig = async () => {
+      try {
+        const response = await fetch(
+          `${baseUrl}/app-config/frontend?subdomain=${subDomain}`,
+          {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          setAppConfig(data.data || {});
+        } else {
+          console.error("Couldn't fetch app configuration.");
+        }
+      } catch {
+        console.error("Error while fetching app configuration.");
+      }
+    };
+    fetchAppConfig();
+  }, []);
+
+  useEffect(() => {
+    const fetchGalleryImages = async () => {
+      try {
+        const response = await fetch(
+          `${baseUrl}/gallery/frontend?subdomain=${subDomain}`,
+          {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          setGallery(data.data || []);
+        } else {
+          console.error("Couldn't fetch gallery images.");
+        }
+      } catch {
+        console.error("Error while fetching gallery images.");
+      }
+    };
+    fetchGalleryImages();
+  }, []);
+
+  const phone = appConfig.phoneNumber;
+  const address = appConfig.companyAddress;
+
   return (
     <div className="flex flex-col justify-center items-center bg-light">
-      <HeroSection />
-      <LeadForm />
+      <HeroSection phone={phone} />
+      <LeadForm address={address} phone={phone} />
       <Courses />
       <TrainingTimeline />
       <About />
@@ -33,14 +90,15 @@ function App() {
       <WhatYouGet />
       <PortfolioSection />
       <CareerOpportunities />
-     
+      <Gallery gallery={gallery} />
       <EligibilitySection />
       <AdmissionsCTA />
       <StudentExperience />
       <FAQs />
-      <FinalCTA />
-      <Footer />
+      <FinalCTA address={address} phone={phone} />
+      <Footer appConfig={appConfig} />
       <Navbar />
+      {(phone || address?.[0]?.address) && (
       <div className="flex flex-col fixed bottom-5 left-5">
         <motion.div
           className="flex flex-col items-start mt-6 gap-3"
@@ -49,6 +107,7 @@ function App() {
           transition={{ delay: 0.8 }}
         >
           {/* Phone */}
+          {phone && (
           <motion.div
             className="flex items-center bg-primary text-light rounded-full overflow-hidden cursor-pointer"
             initial="collapsed"
@@ -73,11 +132,13 @@ function App() {
               }}
               transition={{ duration: 0.3 }}
             >
-               +91 74099 40088 
+              +91 {phone.replace(/(\d{5})(\d{5})/, "$1 $2")}
             </motion.span>
           </motion.div>
+          )}
 
           {/* Address */}
+          {address?.[0]?.address && (
           <motion.div
             className="flex items-center bg-primary text-light rounded-full overflow-hidden cursor-pointer"
             initial="collapsed"
@@ -101,11 +162,13 @@ function App() {
               }}
               transition={{ duration: 0.3 }}
             >
-              Near Fountain Chowk, Nehru Colony, Dehradun, Uttarakhand
+              {address[0].address}
             </motion.span>
           </motion.div>
+          )}
         </motion.div>
       </div>
+      )}
     </div>
   );
 }

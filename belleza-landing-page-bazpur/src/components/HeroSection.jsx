@@ -5,7 +5,7 @@ const MAROON = "#7d1a3a";
 const CREAM = "#f5e8d8";
 const WHITE = "#FFFFFF";
 
-export default function HeroSection() {
+export default function HeroSection({ phone }) {
   const container = {
     hidden: {},
     show: { transition: { staggerChildren: 0.12 } },
@@ -138,7 +138,7 @@ export default function HeroSection() {
               <motion.button
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
-                onClick={() => (window.location.href = "tel:+919012360088")}
+                onClick={() => phone && (window.location.href = `tel:+91${phone}`)}
                 className="px-6 py-3 rounded-full text-[11px] tracking-[2px] uppercase font-medium"
                 style={{
                   border: `1.5px solid ${MAROON}`,

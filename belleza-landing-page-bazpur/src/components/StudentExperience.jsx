@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { baseUrl, subDomain } from "../utils/baseUrl";
 
 const fallbackTestimonials = [
   {
@@ -27,18 +28,18 @@ const fallbackTestimonials = [
 ];
 
 const StudentExperience = () => {
-  const API_URL = import.meta.env.VITE_API_URL;
-
   const [activeIndex, setActiveIndex] = useState(0);
   const [testimonials, setTestimonials] = useState(fallbackTestimonials);
 
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        console.log("Testimonial API URL:", API_URL);
-
         const response = await fetch(
-          `${API_URL}/testimonial/public?limit=10`
+          `${baseUrl}/testimonial/frontend?subdomain=${subDomain}`,
+          {
+            method: "GET",
+            headers: { "Content-Type": "application/json" },
+          }
         );
 
         const data = await response.json();
@@ -55,7 +56,7 @@ const StudentExperience = () => {
     };
 
     fetchTestimonials();
-  }, [API_URL]);
+  }, []);
 
   const nextTestimonial = () => {
     if (testimonials.length === 0) return;

@@ -45,7 +45,14 @@ const GoogleBusinessIcon = ({ className = "" }) => {
     </svg>
   );
 };
-const Footer = () => {
+const Footer = ({ appConfig = {} }) => {
+  const {
+    phoneNumber,
+    companyAddress,
+    facebookLink,
+    instagramLink,
+    googleFormLink,
+  } = appConfig;
   const currentYear = new Date().getFullYear();
 
   return (
@@ -72,35 +79,41 @@ const Footer = () => {
 
             {/* Social Icons */}
             <div className="flex items-center gap-3 pt-2">
-              <a
-                href="https://www.facebook.com/profile.php?id=61585355885004"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="w-10 h-10 rounded-full border border-accent/30 flex items-center justify-center text-accent hover:bg-accent hover:text-primary transition-all duration-300"
-              >
-                <InstagramIcon className="w-5 h-5" />
-              </a>
+              {instagramLink && (
+                <a
+                  href={instagramLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="w-10 h-10 rounded-full border border-accent/30 flex items-center justify-center text-accent hover:bg-accent hover:text-primary transition-all duration-300"
+                >
+                  <InstagramIcon className="w-5 h-5" />
+                </a>
+              )}
 
-              <a
-                href=" https://www.facebook.com/profile.php?id=61585355885004"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="w-10 h-10 rounded-full border border-accent/30 flex items-center justify-center text-accent hover:bg-accent hover:text-primary transition-all duration-300"
-              >
-                <FacebookIcon className="w-5 h-5" />
-              </a>
+              {facebookLink && (
+                <a
+                  href={facebookLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="w-10 h-10 rounded-full border border-accent/30 flex items-center justify-center text-accent hover:bg-accent hover:text-primary transition-all duration-300"
+                >
+                  <FacebookIcon className="w-5 h-5" />
+                </a>
+              )}
 
-              <a
-                href="https://share.google/Id1yaa47rCl9V2ZsE"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Google Business Profile"
-                className="w-10 h-10 rounded-full border border-accent/30 flex items-center justify-center text-accent hover:bg-accent hover:text-primary transition-all duration-300"
-              >
-                <GoogleBusinessIcon className="w-5 h-5" />
-              </a>
+              {googleFormLink && (
+                <a
+                  href={googleFormLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Google Business Profile"
+                  className="w-10 h-10 rounded-full border border-accent/30 flex items-center justify-center text-accent hover:bg-accent hover:text-primary transition-all duration-300"
+                >
+                  <GoogleBusinessIcon className="w-5 h-5" />
+                </a>
+              )}
             </div>
           </div>
 
@@ -186,22 +199,26 @@ const Footer = () => {
             </h4>
 
             <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                <p className="text-sm text-light/70 leading-relaxed">
-                  Beria Road, near S.D.M Court, Bazpur, Uttarakhand 262401 
-                </p>
-              </div>
+              {companyAddress?.[0]?.address && (
+                <div className="flex items-start gap-3">
+                  <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                  <p className="text-sm text-light/70 leading-relaxed">
+                    {companyAddress[0].address}
+                  </p>
+                </div>
+              )}
 
-              <div className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-accent shrink-0" />
-                <a
-                  href="tel:+919012360088"
-                  className="text-sm text-light/70 hover:text-accent transition-colors"
-                >
-                   +91 74099 40088  
-                </a>
-              </div>
+              {phoneNumber && (
+                <div className="flex items-center gap-3">
+                  <Phone className="w-5 h-5 text-accent shrink-0" />
+                  <a
+                    href={`tel:+91${phoneNumber}`}
+                    className="text-sm text-light/70 hover:text-accent transition-colors"
+                  >
+                    +91 {phoneNumber.replace(/(\d{5})(\d{5})/, "$1 $2")}
+                  </a>
+                </div>
+              )}
 
               <div className="flex items-center gap-3">
                 <Globe className="w-5 h-5 text-accent shrink-0" />

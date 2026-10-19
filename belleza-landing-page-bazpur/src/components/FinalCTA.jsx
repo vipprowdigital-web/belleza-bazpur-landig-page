@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Phone, MapPin, Calendar } from "lucide-react";
 
-const FinalCTA = () => {
+const FinalCTA = ({ address, phone }) => {
   return (
     <section className="py-20 bg-light relative overflow-hidden">
       <div className="max-w-8xl mx-auto">
@@ -51,6 +51,7 @@ const FinalCTA = () => {
 
             {/* Contact Details */}
             <div className="pt-8 border-t border-secondary/10 space-y-4">
+              {phone && (
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5 text-primary" />
@@ -60,11 +61,13 @@ const FinalCTA = () => {
                     Phone
                   </p>
                   <p className="text-primary font-bold text-lg leading-none">
-                    +91 74099 40088
+                    +91 {phone.replace(/(\d{5})(\d{5})/, "$1 $2")}
                   </p>
                 </div>
               </div>
+              )}
 
+              {address?.[0]?.address && (
               <div className="flex items-start gap-4">
                 <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-primary" />
@@ -74,10 +77,11 @@ const FinalCTA = () => {
                     Address
                   </p>
                   <p className="text-secondary font-semibold text-sm leading-relaxed max-w-sm">
-                   Beria Road, near S.D.M Court, Bazpur, Uttarakhand 262401 
+                    {address[0].address}
                   </p>
                 </div>
               </div>
+              )}
             </div>
           </motion.div>
 
